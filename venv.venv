@@ -1,0 +1,24 @@
+cd "C:\Users\ACER\OneDrive\Desktop\scrape_kompas"
+.\.venv\Scripts\Activate.ps1
+#Or
+#.\.venv\Scripts\activate.bat
+
+# Cek interpreter & pip di venv
+python --version
+python -m pip -V
+
+# Upgrade pip lalu install semua dependency (termasuk tqdm)
+python -m pip install -U pip
+python -m pip install httpx[http2] selectolax lxml beautifulsoup4 pandas tqdm python-dateutil requests-cache tenacity
+
+# Verifikasi tqdm (ini cara yang benar, satu baris)
+python -c "from tqdm import tqdm; print('tqdm OK')"
+
+# Pastikan di skrip ADA baris: from tqdm import tqdm
+notepad scrape_kompas_news.py
+
+# Cek semua dep terpasang di venv aktif
+python -c "import httpx,selectolax,bs4,lxml,pandas,tqdm,dateutil,requests_cache,tenacity,sys;print('deps OK\n',sys.executable)"
+
+# Jalankan (target 12k artikel)
+python scrape_kompas_news.py --max 12000 --out kompas_news.csv --concurrency 2 --days 3650
