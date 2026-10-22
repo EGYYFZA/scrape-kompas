@@ -1,0 +1,7 @@
+httpx
+selectolax
+lxml
+pandas
+python-dateutil
+tenacity
+tqdm
