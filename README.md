@@ -1,5 +1,3 @@
-<img src=".github/media/cover.png" alt="Kompas News Collector — research data tools" width="1280">
-
 # Kompas News Collector
 
 A Python command-line collector that exports Indonesian news article records for data-mining research.
